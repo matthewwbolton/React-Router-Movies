@@ -9,6 +9,7 @@ const MovieList = props => {
       axios
         .get('http://localhost:5000/api/movies')
         .then(response => {
+          console.log(response.data);
           setMovies(response.data);
         })
         .catch(error => {
@@ -33,7 +34,7 @@ function MovieDetails({ movie }) {
   return (
    
     <div className="movie-card">
-      <Link to='/movies/:movieID'>
+      <Link to={`/movies/${movie.id}`}>
       <h2>{title}</h2>
       <div className="movie-director">
         Director: <em>{director}</em>
